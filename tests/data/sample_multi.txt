@@ -1,0 +1,11 @@
+English: Vocabulary sizing through compression-memory optimization.
+Spanish: Dimensionamiento del vocabulario mediante optimización de compresión y memoria.
+Code: def rho(B,T): return B / T if T else 0.0
+Math: U(V) = rho(V) - lambda * M(V)  with M(V)=V*d*b
+Unicode test: café naïve résumé 日本語 emoji 😀😃😄
+Noisy user text: hellooooo worlddd!!! sooo cooool lmaooo
+Repeated patterns: the the the the the quick quick quick brown brown fox fox
+Rare domain strings: XylophonicQuantumEntanglement_42b is rare.
+Edge cases:   multiple    spaces	 tabs
+ newlines and CAPS vs lowercase.
+Long tail: antidisestablishmentarianism supercalifragilisticexpialidocious pneumonoultramicroscopicsilicovolcanoconiosis

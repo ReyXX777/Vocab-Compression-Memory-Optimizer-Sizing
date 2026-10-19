@@ -1,0 +1,15 @@
+The algorithm aims to determine an effective tokenizer vocabulary size V that balances two competing objectives.
+Maximize text compression efficiency — a larger vocabulary can represent common words, subwords, and text patterns using fewer tokens.
+Minimize model memory overhead — a larger vocabulary increases the size of the token embedding table and, when untied, the output projection matrix.
+At what vocabulary size does the marginal benefit of producing shorter token sequences become smaller than the additional memory and computational cost of supporting more tokens?
+This is a tokenizer and model-architecture optimization problem, not merely a tokenizer-training task.
+The training and evaluation corpora must be separated properly. The evaluation corpus should not influence the tokenizer's learned merges or vocabulary.
+For byte-level tokenizers, OOV rate is generally not a useful discriminator because arbitrary input bytes can be represented.
+Token fertility, bytes per token, sequence-length distributions, and domain-specific compression are more informative.
+A vocabulary that achieves better compression does not automatically produce a better language model.
+Sequence length often decreases as vocabulary grows. Embedding memory increases linearly.
+Output projection may increase substantially. Attention computation may decrease as sequences shorten.
+KV-cache memory may decrease as sequences shorten. Training throughput depends on sequence packing, kernels, and vocabulary size.
+Language-model quality depends on tokenization, training data, model size, and training budget.
+Multilingual coverage may improve or worsen depending on vocabulary allocation.
+The intended outcome is a recommended vocabulary size, a comparison table of candidates, and evidence showing where additional vocabulary capacity stops delivering worthwhile benefits.
